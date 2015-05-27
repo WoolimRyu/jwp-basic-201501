@@ -22,3 +22,7 @@
 * 스레드 : 프로그램 내에서, 실행되는 흐름의 단위.
 * 일반적으로 한 프로그램은 하나의 스레드를 가지지만, 둘 이상의 스레드를 동시에 실행시킬 수도 있다. -> 멀티쓰레드
 
+- ListController 와 ShowController 인스턴스는 하나인데, 멤버변수가 여러개의 쓰레드에 의해 공유되어 사용됨으로써 에러가 발생한다.
+- 이를 해결하기 위해, 멤버변수들을 각 변수를 사용하는 메서드들 내부에서 선언하여 사용하도록 해줘야한다.
+- ListController : private List<Question> questions; 부분을 메서드 내부로 옮김.
+- ShowController : private Question question; 과 private List<Answer> answers; 를 마찬가지로 메서드 내부에 선언시킴.

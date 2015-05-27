@@ -68,8 +68,14 @@
 						<div class="about">내용 :</div>
 						${each.contents}
 					</div>
-					<div>
+					<div class="delBtn">
 						<a href="#">삭제</a>
+					</div>
+					<div class="delInfo" style="">
+						<ul>
+							<li>${each.answerId}</li>
+							<li>${each.questionId}</li>
+						</ul>
 					</div>
 				</div>
 			</c:forEach>

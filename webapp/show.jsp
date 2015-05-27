@@ -81,7 +81,7 @@
 					<div class="delBtn">
 						<a href="#">삭제</a>
 					</div>
-					<div class="delInfo" style="">
+					<div class="delInfo" style="display:none;">
 						<ul>
 							<li>${each.answerId}</li>
 							<li>${each.questionId}</li>

@@ -40,7 +40,7 @@ public class DeleteAnswerController extends AbstractController {
 		answerDao.delete(answerId);
 		questionDao.subtractAnswerCount(questionId);
 
-		ModelAndView mav = jsonView();
+		ModelAndView mav = jstlView("redirect:/");
 		return mav;
 	}
 }

@@ -55,9 +55,14 @@ public class QuestionDao {
 						rs.getTimestamp("createdDate"),
 						rs.getInt("countOfComment"));
 			}
-			
 		};
 		
 		return jdbcTemplate.queryForObject(sql, rm, questionId);
+	}
+
+	public void addAnswerCount(long questionId) {
+		JdbcTemplate jdbcTemplate = new JdbcTemplate();
+		String sql = "UPDATE QUESTIONS SET countOfComment = countOfComment + 1 WHERE questionId=?";
+		jdbcTemplate.update(sql, questionId);
 	}
 }

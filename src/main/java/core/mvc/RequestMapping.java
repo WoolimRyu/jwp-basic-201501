@@ -18,6 +18,8 @@ public class RequestMapping {
 		mappings.put("/show.next", new ShowController());
 		mappings.put("/form.next", new ForwardController("form.jsp"));
 		mappings.put("/save.next", new SaveController());
+		mappings.put("/update.next", new UpdateController());
+		mappings.put("/edit.next", new EditController());
 		
 		mappings.put("/api/addanswer.next", new AnswerController());
 		mappings.put("/api/deleteanswer.next", new DeleteAnswerController());
@@ -33,5 +35,4 @@ public class RequestMapping {
 	void put(String url, Controller controller) {
 		mappings.put(url, controller);
 	}
-
 }

@@ -19,5 +19,4 @@ public class ForwardController extends AbstractController {
 		}
 		return jstlView(forwardUrl);
 	}
-
 }

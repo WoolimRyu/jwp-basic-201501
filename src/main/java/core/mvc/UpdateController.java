@@ -12,10 +12,9 @@ import org.slf4j.LoggerFactory;
 import core.mvc.AbstractController;
 import core.mvc.ModelAndView;
 import core.utils.ServletRequestUtils;
-
 import next.dao.DaoFactory;
 
-public class SaveController extends AbstractController {
+public class UpdateController extends AbstractController {
 	private static final Logger logger = LoggerFactory.getLogger(SaveController.class);
 	private QuestionDao questionDao = DaoFactory.getQuestionDao();
 	
@@ -26,7 +25,8 @@ public class SaveController extends AbstractController {
 		String title = ServletRequestUtils.getRequiredStringParameter(req, "title");
 		String contents = ServletRequestUtils.getRequiredStringParameter(req, "contents");
 		
-		questionDao.insert(new Question(writer, title, contents));
+		int questionId = Integer.parseInt(req.getParameter("questionId"));
+		questionDao.update(new Question(writer, title, contents), questionId);
 		
 		return jstlView("redirect:/list.next");
 	}

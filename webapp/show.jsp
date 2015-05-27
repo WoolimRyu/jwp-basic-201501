@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%><%@ include file="/include/tags.jspf"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,6 +31,12 @@
 				${nf:hbr(question.contents)}
 			</div>
 		</div>
+
+			<div class="editQuestion">
+				<button style="width: 50px; height: 27px; background-color: white;">
+					<a href="/edit.next?questionId=${question.questionId}"> 수정 </a>
+				</button>
+			</div>
 
 		<br /> <a href="/list.next">목록으로</a>
 

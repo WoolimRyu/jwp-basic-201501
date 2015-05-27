@@ -22,6 +22,19 @@ public class QuestionDao {
 				question.getCountOfComment());
 	}
 	
+	public Question countCmt(int questionId){
+		RowMapper<Question> rm = new RowMapper<Question>() {
+			@Override
+			public Question mapRow(ResultSet rs) throws SQLException {
+				return new Question(rs.getLong("questionId"));
+			}
+		};
+		
+		JdbcTemplate jdbcTemplate = new JdbcTemplate();
+		String sql = "SELECT countOfComment FROM QUESTIONS WHERE questionId = ?";
+		return jdbcTemplate.queryForObject(sql, rm, questionId);
+	}
+	
 	public void update(Question question, int questionId){
 		JdbcTemplate jdbcTemplate = new JdbcTemplate();
 		String sql = "UPDATE QUESTIONS SET writer = ?, title = ?, contents = ? WHERE questionId = ?";
@@ -80,6 +93,12 @@ public class QuestionDao {
 	public void subtractAnswerCount(long questionId) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate();
 		String sql = "UPDATE QUESTIONS SET countOfComment = countOfComment - 1 WHERE questionId=?";
+		jdbcTemplate.update(sql, questionId);
+	}
+
+	public void delete(Question question, int questionId) {
+		JdbcTemplate jdbcTemplate = new JdbcTemplate();
+		String sql = "DELETE FROM QUESTIONS WHERE questionId = ?";
 		jdbcTemplate.update(sql, questionId);
 	}
 }

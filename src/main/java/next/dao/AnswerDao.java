@@ -20,6 +20,19 @@ public class AnswerDao {
 				answer.getQuestionId());
 	}
 
+	public Answer findWriter(long questionId) {
+		RowMapper<Answer> rm = new RowMapper<Answer>() {
+			@Override
+			public Answer mapRow(ResultSet rs) throws SQLException {
+				return new Answer(rs.getString("writer"));
+			}
+		};
+		
+		JdbcTemplate jdbcTemplate = new JdbcTemplate();
+		String sql = "SELECT writer FROM ANSWERS WHERE questionId = ?";
+		return jdbcTemplate.queryForObject(sql, rm, questionId);
+	}
+	
 	public List<Answer> findAllByQuestionId(long questionId) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate();
 		String sql = "SELECT answerId, writer, contents, createdDate FROM ANSWERS WHERE questionId = ? "

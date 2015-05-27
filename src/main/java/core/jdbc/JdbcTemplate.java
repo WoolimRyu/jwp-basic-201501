@@ -17,7 +17,7 @@ public class JdbcTemplate {
 			throw new DataAccessException(e);
 		}
 	}
-
+	
 	public void update(String sql, Object... parameters) {
 		update(sql, createPreparedStatementSetter(parameters));
 	}

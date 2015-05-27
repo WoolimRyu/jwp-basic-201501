@@ -20,10 +20,12 @@ public class RequestMapping {
 		mappings.put("/save.next", new SaveController());
 		mappings.put("/update.next", new UpdateController());
 		mappings.put("/edit.next", new EditController());
+		mappings.put("/delete.next", new DeleteController());
 		
 		mappings.put("/api/addanswer.next", new AnswerController());
 		mappings.put("/api/deleteanswer.next", new DeleteAnswerController());
 		mappings.put("/api/list.next", new ApiListController());
+		mappings.put("/api/delete.next", new ApiDeleteController());
 		
 		logger.info("Initialized Request Mapping!");
 	}

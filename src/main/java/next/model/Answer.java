@@ -25,6 +25,10 @@ public class Answer {
 		this.questionId = questionId;
 	}
 	
+	public Answer(String writer) {
+		this.writer = writer;
+	}
+
 	public long getAnswerId() {
 		return answerId;
 	}

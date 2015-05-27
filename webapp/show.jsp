@@ -32,12 +32,17 @@
 			</div>
 		</div>
 
-			<div class="editQuestion">
-				<button style="width: 50px; height: 27px; background-color: white;">
-					<a href="/edit.next?questionId=${question.questionId}"> 수정 </a>
-				</button>
-			</div>
+		<div class="editQuestion">
+			<button style="width: 50px; height: 27px; background-color: white;">
+				<a href="/edit.next?questionId=${question.questionId}"> 수정 </a>
+			</button>
+		</div>
 
+		<div class="delQuestion">
+			<button style="width: 50px; height: 27px; background-color: pink;">
+				<a href="/delete.next?questionId=${question.questionId}"> 삭제 </a>
+			</button>
+		</div>
 		<br /> <a href="/list.next">목록으로</a>
 
 		<h3>답변</h3>

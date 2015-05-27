@@ -21,6 +21,7 @@ public class RequestMapping {
 		
 		mappings.put("/api/addanswer.next", new AnswerController());
 		mappings.put("/api/deleteanswer.next", new DeleteAnswerController());
+		mappings.put("/api/list.next", new ApiListController());
 		
 		logger.info("Initialized Request Mapping!");
 	}
